@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+    table,tr,td,th{border:1px solid;border-collapse: collapse;padding: 3px;}
+    tr:nth-child(even){background: #e3e3e3;}
+    th{background: #0f5f73;color: white;}
+    </style>
+  </head>
+  <body>
+    <h1>Students list</h1>
+    <table id = "all-students">
+      <tr>
+        <th>SNo</th>
+        <th>Roll Number</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Actions</th>
+      </tr>
+
+      {% set count=namespace(value=1) %}
+      {% for row in all %}
+      <tr>
+        <td>{{count.value}}</td>
+        <td><a href="/student/{{row['student_id']}}">{{row['roll_number']}}</a></td>
+        <td>{{row['first_name']}}</td>
+        <td>{{row['last_name']}}</td>
+        <td>
+          <a href="/student/{{row['student_id']}}/update" type="button">Update</a>
+          <a href="/student/{{row['student_id']}}/delete" type="button">Delete</a>
+        </td>
+      </tr>
+      {% set count.value=count.value+1 %}
+      {% endfor %}
+
+    </table>
+    <a href="/student/create">+Add student</a>
+  </body>
+</html>

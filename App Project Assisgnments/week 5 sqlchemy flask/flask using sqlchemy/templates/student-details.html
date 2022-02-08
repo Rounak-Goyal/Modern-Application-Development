@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+    table,tr,td,th{border:1px solid;border-collapse: collapse;padding: 3px;}
+    tr:nth-child(even){background: #e3e3e3;}
+    th{background: #0f5f73;color: white;}
+    </style>
+  </head>
+  <body>
+    <h1>Student Details</h1>
+    <table id="personal-details">
+      <tr>
+        <th>Roll number</th>
+        <th>First Nmae</th>
+        <th>Last Name</th>
+      </tr>
+
+      <tr>
+        <td>{{row['roll_number']}}</td>
+        <td>{{row['first_name']}}</td>
+        <td>{{row['last_name']}}</td>
+      </tr>
+    </table>
+
+    <h1>Enrollment list</h1>
+    <table>
+      <tr>
+        <th>S. No</th>
+        <th>Course Code</th>
+        <th>Course Name</th>
+        <th>Course Description</th>
+      </tr>
+
+      {% set count=namespace(value=1) %}
+      {% for row in courses %}
+      <tr>
+        <td>{{count.value}}</td>
+        <td>{{row['course_code']}}</td>
+        <td>{{row['course_name']}}</td>
+        <td>{{row['course_description']}}</td>
+      </tr>
+      {% set count.value=count.value+1 %}
+      {% endfor %}
+    </table>
+    <a href="/">Go Back</a>
+
+
+
+  </body>
+</html>
