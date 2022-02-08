@@ -1,0 +1,18 @@
+body {
+background-color: #fdfdbb;
+}
+
+div {
+	margin: 20px;
+}
+
+a {
+  color: #ff0000;
+}
+
+
+div.fixed {
+  position:fixed;
+  bottom: 0;
+  right: 650px;
+}
