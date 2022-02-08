@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Student Data</title>
+</head>
+
+<body>
+    <h1>Student Details</h1>
+    <table border="2" id="student-details-table">
+        <thead>
+            <tr>
+                <th>Student Id</th>
+                <th>Course Id</th>
+                <th>Marks</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in temp %}
+            <tr>
+                <td>{{ i[0] }}</td>
+                <td>{{ i[1] }}</td>
+                <td>{{ i[2] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="2" style="text-align: center;"> Total Marks </td>
+                <td>{{ total_marks }}</td>
+            </tr>
+        </tfoot>
+    </table>
+    <br>
+    <a href="/">Go Back</a>
+</body>
+
+</html>
